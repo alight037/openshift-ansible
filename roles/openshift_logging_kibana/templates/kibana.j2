@@ -162,10 +162,10 @@ spec:
 {% if (openshift_no_proxy is defined and openshift_no_proxy is not none and openshift_no_proxy != "") %}
             -
              name: "no_proxy"
-             value: "{{ openshift_no_proxy }}"
+             value: "{{ openshift.common.no_proxy | default('') }}"
             -
              name: "NO_PROXY"
-             value: "{{ openshift_no_proxy }}"
+             value: "{{ openshift.common.no_proxy | default('') }}"
 {% endif %}
           volumeMounts:
             - name: kibana-proxy
